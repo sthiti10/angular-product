@@ -7,7 +7,7 @@ import { Product } from '../products';
   styleUrls: ['./product-alerts.component.css']
 })
 export class ProductAlertsComponent implements OnInit {
-  @Input() productId!: Product;
+  @Input() product!: Product;
   @Output() notify = new EventEmitter();
 
   constructor() {}
