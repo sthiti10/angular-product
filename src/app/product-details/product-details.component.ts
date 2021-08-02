@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { products } from '../products';
+
+import { Product, products } from '../products';
+import { CartService } from '../cart.service';
+
+//import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-details',
@@ -9,8 +13,12 @@ import { products } from '../products';
 export class ProductDetailsComponent implements OnInit {
   product = products;
   //product: Product|undefined;
-  constructor() {}
+
+  //Injecting Cart Service
+  constructor(private cartService: CartService) {}
+
   //constructor(private route: ActivatedRoute,){}
+
   ngOnInit() {}
   // ngOnInit() {
   //   // First get the product id from the current route.
@@ -20,4 +28,9 @@ export class ProductDetailsComponent implements OnInit {
   //   // Find the product that correspond with the id provided in route.
   //   this.product = products.find(product => product.id === productIdFromRoute);
   // }
+
+  addToCart(product: Product){
+    this.cartService.addToCart(product);
+    window.alert("Product added!");
+  }
 }

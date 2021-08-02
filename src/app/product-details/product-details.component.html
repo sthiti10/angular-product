@@ -11,4 +11,5 @@
   <h3>{{ prodEl.name }}</h3>
   <h4>{{ prodEl.price | currency }}</h4>
   <p>{{ prodEl.description }}</p>
+  <button (click)="addToCart(prodEl)">Buy</button>
 </div>
