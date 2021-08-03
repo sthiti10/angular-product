@@ -13,7 +13,7 @@ export class CartComponent {
     private cartService: CartService,
     private formBuilder: FormBuilder
   ) {}
-  items = this.cartService.getItems();
+  item = this.cartService.getItems();
 
   checkoutForm = this.formBuilder.group({
     name: '',
@@ -21,7 +21,7 @@ export class CartComponent {
   });
 
   onSubmit(): void {
-    this.cartService.clearCart();
+    this.item = this.cartService.clearCart();
     console.warn('Your order has been submitted', this.checkoutForm.value);
     this.checkoutForm.reset();
   }
